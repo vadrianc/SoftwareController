@@ -5,6 +5,9 @@
     /// <summary>
     /// Node interface.
     /// </summary>
+    /// <remarks>
+    /// To be used for defining the nodes in a tree data structure.
+    /// </remarks>
     public interface INode
     {
         /// <summary>
