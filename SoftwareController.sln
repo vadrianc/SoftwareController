@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareControllerApi", "So
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareControllerLib", "SoftwareControllerLib\SoftwareControllerLib.csproj", "{05289618-5F5F-46BF-BB82-CEFD8C546B65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareControllerLibTest", "SoftwareControllerLibTest\SoftwareControllerLibTest.csproj", "{1C0F2E24-BE69-43FE-BA5C-D8A9CD7F7C90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{05289618-5F5F-46BF-BB82-CEFD8C546B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05289618-5F5F-46BF-BB82-CEFD8C546B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05289618-5F5F-46BF-BB82-CEFD8C546B65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C0F2E24-BE69-43FE-BA5C-D8A9CD7F7C90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C0F2E24-BE69-43FE-BA5C-D8A9CD7F7C90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C0F2E24-BE69-43FE-BA5C-D8A9CD7F7C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C0F2E24-BE69-43FE-BA5C-D8A9CD7F7C90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
