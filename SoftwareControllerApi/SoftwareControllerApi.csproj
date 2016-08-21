@@ -48,6 +48,8 @@
     <Compile Include="Action\ISequentialAction.cs" />
     <Compile Include="Action\ITypeAction.cs" />
     <Compile Include="Action\IWaitAction.cs" />
+    <Compile Include="Control\IRunner.cs" />
+    <Compile Include="Control\ISession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rule\IRule.cs" />
   </ItemGroup>
