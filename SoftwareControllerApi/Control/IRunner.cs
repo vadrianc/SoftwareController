@@ -3,7 +3,7 @@
     /// <summary>
     /// Interface for defining a runner responsible with executing the logic of a session.
     /// </summary>
-    interface IRunner
+    public interface IRunner
     {
         /// <summary>
         /// Execute the logic of a session.

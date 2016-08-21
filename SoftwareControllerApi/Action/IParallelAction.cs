@@ -7,7 +7,7 @@
     /// IParalelAction shall contain a collection of actions that can be executed in parallel. 
     /// The individual actions can be either of sequential or parallel type.
     /// </remarks>
-    interface IParallelAction : IAction
+    public interface IParallelAction : IAction
     {
         /// <summary>
         /// Add a action that can be executed in parallel with other actions.

@@ -3,7 +3,7 @@
     /// <summary>
     /// Interface for defining an action for typing letters given an input control.
     /// </summary>
-    interface ITypeAction
+    public interface ITypeAction
     {
     }
 }

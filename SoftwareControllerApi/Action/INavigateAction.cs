@@ -3,7 +3,7 @@
     /// <summary>
     /// Interface for defining a navigation action.
     /// </summary>
-    interface INavigateAction : ISequentialAction
+    public interface INavigateAction : ISequentialAction
     {
     }
 }

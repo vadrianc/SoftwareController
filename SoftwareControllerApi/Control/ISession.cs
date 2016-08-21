@@ -5,7 +5,7 @@
     /// <summary>
     /// Interface for defining a session.
     /// </summary>
-    interface ISession
+    public interface ISession
     {
         /// <summary>
         /// The name of the session.

@@ -6,7 +6,7 @@
     /// <remarks>
     /// Actions that implement this interface should have their logic executed sequentialy.
     /// </remarks>
-    interface ISequentialAction : IAction
+    public interface ISequentialAction : IAction
     {
     }
 }

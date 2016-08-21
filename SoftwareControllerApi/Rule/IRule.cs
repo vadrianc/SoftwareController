@@ -5,7 +5,7 @@
     /// <summary>
     /// Interface for defining a rule.
     /// </summary>
-    interface IRule
+    public interface IRule
     {
         /// <summary>
         /// The name of the rule.

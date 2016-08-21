@@ -3,7 +3,7 @@
     /// <summary>
     /// Interface for defining an action related to data collection.
     /// </summary>
-    interface ICollectAction
+    public interface ICollectAction
     {
     }
 }

@@ -7,7 +7,7 @@
     /// A Wait Action should be complementary to other actions, sequential or parallel, 
     /// by implementing the functionality to wait for the action to finish.
     /// </remarks>
-    interface IWaitAction
+    public interface IWaitAction
     {
     }
 }
