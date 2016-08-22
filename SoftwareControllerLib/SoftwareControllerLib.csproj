@@ -40,8 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\ParallelAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rule.cs" />
+    <Compile Include="Rule\Rule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SoftwareControllerApi\SoftwareControllerApi.csproj">
