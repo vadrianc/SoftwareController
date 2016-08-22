@@ -35,7 +35,7 @@
 
         [Test]
         [Category("Rule")]
-        public void CheckName()
+        public void CheckRuleName()
         {
             Rule rule = new Rule("Test");
             Assert.That(rule.Name, Is.EqualTo("Test"));
