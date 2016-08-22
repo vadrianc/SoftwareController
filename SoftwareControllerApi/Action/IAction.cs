@@ -6,6 +6,11 @@
     public interface IAction
     {
         /// <summary>
+        /// The name of the action.
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
         /// Execute the action.
         /// </summary>
         void Execute();
