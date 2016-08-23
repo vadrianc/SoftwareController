@@ -101,5 +101,30 @@
             Assert.That(action2.Name, Is.EqualTo("Test"));
             Assert.That(action3.Name, Is.EqualTo("Test"));
         }
+
+        [Test]
+        [Category("Session")]
+        public void RemoveRuleFromSession()
+        {
+            // Rule 1
+            Rule rule1 = new Rule("Test1");
+            IAction action1 = new DummySequentialAction("dummy1");
+            rule1.AddAction(action1);
+
+            // Rule 2
+            Rule rule2 = new Rule("Test2");
+            IAction action2 = new DummySequentialAction("dummy2");
+            rule2.AddAction(action2);
+
+            // Session
+            ISession session = new Session("TestSession");
+            session.AddRule(rule1);
+            session.AddRule(rule2);
+            session.RemoveRule(rule1);
+            session.Run();
+
+            Assert.That(action1.Name, Is.EqualTo("dummy1"));
+            Assert.That(action2.Name, Is.EqualTo("Test"));
+        }
     }
 }

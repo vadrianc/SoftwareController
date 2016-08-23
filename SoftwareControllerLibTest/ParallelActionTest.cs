@@ -82,5 +82,23 @@
             Assert.That(action1.Name, Is.EqualTo("Test"));
             Assert.That(action2.Name, Is.EqualTo("Test"));
         }
+
+        [Test]
+        [Category("ParallelAction")]
+        public void RemoveActionFromParallelAction()
+        {
+            ParallelAction pAction = new ParallelAction("ParallelAction");
+
+            IAction action1 = new DummySequentialAction("dummy1");
+            IAction action2 = new DummySequentialAction("dummy2");
+
+            pAction.AddAction(action1);
+            pAction.AddAction(action2);
+            pAction.RemoveAction(action1);
+            pAction.Execute();
+
+            Assert.That(action1.Name, Is.EqualTo("dummy1"));
+            Assert.That(action2.Name, Is.EqualTo("Test"));
+        }
     }
 }

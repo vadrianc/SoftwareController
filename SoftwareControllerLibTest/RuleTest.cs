@@ -186,5 +186,23 @@
             Assert.That(action2.Name, Is.EqualTo("Test"));
             Assert.That(action3.Name, Is.EqualTo("Test"));
         }
+
+        [Test]
+        [Category("Rule")]
+        public void RemoveActionFromRule()
+        {
+            Rule rule = new Rule("Test");
+
+            IAction action1 = new DummySequentialAction("dummy1");
+            IAction action2 = new DummySequentialAction("dummy2");
+
+            rule.AddAction(action1);
+            rule.AddAction(action2);
+            rule.RemoveAction(action1);
+            rule.Apply();
+
+            Assert.That(action1.Name, Is.EqualTo("dummy1"));
+            Assert.That(action2.Name, Is.EqualTo("Test"));
+        }
     }
 }
