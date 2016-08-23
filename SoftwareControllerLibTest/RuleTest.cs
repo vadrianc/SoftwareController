@@ -43,5 +43,23 @@
             rule.Name = "NewName";
             Assert.That(rule.Name, Is.EqualTo("NewName"));
         }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        [Category("Rule")]
+        public void AddNullAction()
+        {
+            Rule rule = new Rule("Test");
+            rule.AddAction(null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        [Category("Rule")]
+        public void RemoveNullAction()
+        {
+            Rule rule = new Rule("Test");
+            rule.RemoveAction(null);
+        }
     }
 }

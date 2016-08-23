@@ -35,5 +35,23 @@
             pAction.Name = "NewName";
             Assert.That(pAction.Name, Is.EqualTo("NewName"));
         }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        [Category("ParallelAction")]
+        public void AddNullAction()
+        {
+            ParallelAction pAction = new ParallelAction("Test");
+            pAction.AddAction(null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        [Category("ParallelAction")]
+        public void RemoveNullAction()
+        {
+            ParallelAction pAction = new ParallelAction("Test");
+            pAction.RemoveAction(null);
+        }
     }
 }

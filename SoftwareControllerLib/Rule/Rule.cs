@@ -69,6 +69,8 @@
         /// <param name="action">Action to be removed.</param>
         public void RemoveAction(IAction action)
         {
+            if (action == null) throw new ArgumentNullException("action", "Cannot be null");
+
             mActions.Remove(action);
         }
     }
