@@ -48,7 +48,6 @@
     <Compile Include="Action\ISequentialAction.cs" />
     <Compile Include="Action\ITypeAction.cs" />
     <Compile Include="Action\IWaitAction.cs" />
-    <Compile Include="Control\IRunner.cs" />
     <Compile Include="Control\ISession.cs" />
     <Compile Include="Model\IComposite.cs" />
     <Compile Include="Model\IData.cs" />
