@@ -60,6 +60,14 @@
 
         [Test]
         [Category("Session")]
+        public void RunEmptySession()
+        {
+            Session session = new Session("Test");
+            session.Run();
+        }
+
+        [Test]
+        [Category("Session")]
         public void RunSessionWith2Rules()
         {
             // Rule 1

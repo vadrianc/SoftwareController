@@ -66,6 +66,14 @@
 
         [Test]
         [Category("Rule")]
+        public void ApplyEmptyRule()
+        {
+            Rule rule = new Rule("Test");
+            rule.Apply();
+        }
+
+        [Test]
+        [Category("Rule")]
         public void RuleWithSingleSequentialAction()
         {
             Rule rule = new Rule("Test");

@@ -57,6 +57,14 @@
 
         [Test]
         [Category("ParallelAction")]
+        public void ExecuteEmptyParallelAction()
+        {
+            ParallelAction pAction = new ParallelAction("Test");
+            pAction.Execute();
+        }
+
+        [Test]
+        [Category("ParallelAction")]
         public void ExecuteActionsInParallel()
         {
             ParallelAction pAction = new ParallelAction("ParallelAction");
