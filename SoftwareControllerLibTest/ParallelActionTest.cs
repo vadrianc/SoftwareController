@@ -2,6 +2,7 @@
 {
     using System;
     using NUnit.Framework;
+    using SoftwareControllerApi.Action;
     using SoftwareControllerLib.Action;
 
     [TestFixture]
@@ -52,6 +53,26 @@
         {
             ParallelAction pAction = new ParallelAction("Test");
             pAction.RemoveAction(null);
+        }
+
+        [Test]
+        [Category("ParallelAction")]
+        public void ExecuteActionsInParallel()
+        {
+            ParallelAction pAction = new ParallelAction("ParallelAction");
+
+            IAction action1 = new DummySequentialAction("dummy1");
+            IAction action2 = new DummySequentialAction("dummy2");
+
+            Assert.That(action1.Name, Is.EqualTo("dummy1"));
+            Assert.That(action2.Name, Is.EqualTo("dummy2"));
+
+            pAction.AddAction(action1);
+            pAction.AddAction(action2);
+            pAction.Execute();
+
+            Assert.That(action1.Name, Is.EqualTo("Test"));
+            Assert.That(action2.Name, Is.EqualTo("Test"));
         }
     }
 }
