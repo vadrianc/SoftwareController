@@ -11,7 +11,7 @@
     public interface INode
     {
         /// <summary>
-        /// Get the descendents of this node.
+        /// Get the descendants of this node.
         /// </summary>
         IList<INode> Descendents { get; }
 
