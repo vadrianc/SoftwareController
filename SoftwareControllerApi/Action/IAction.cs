@@ -13,6 +13,6 @@
         /// <summary>
         /// Execute the action.
         /// </summary>
-        void Execute();
+        IResult Execute();
     }
 }

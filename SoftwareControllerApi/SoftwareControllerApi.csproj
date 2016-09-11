@@ -40,11 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\ActionState.cs" />
     <Compile Include="Action\IAction.cs" />
     <Compile Include="Action\IClickAction.cs" />
     <Compile Include="Action\ICollectAction.cs" />
     <Compile Include="Action\INavigateAction.cs" />
     <Compile Include="Action\IParallelAction.cs" />
+    <Compile Include="Action\IResult.cs" />
     <Compile Include="Action\ISequentialAction.cs" />
     <Compile Include="Action\ITypeAction.cs" />
     <Compile Include="Action\IWaitAction.cs" />

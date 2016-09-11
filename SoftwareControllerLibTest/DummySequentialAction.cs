@@ -1,6 +1,7 @@
 ﻿namespace SoftwareControllerLibTest
 {
     using SoftwareControllerApi.Action;
+    using SoftwareControllerLib.Action;
 
     /// <summary>
     /// Dummy action implementation used only for running unit tests.
@@ -17,9 +18,11 @@
             Name = name;
         }
 
-        public void Execute()
+        public IResult Execute()
         {
             Name = "Test";
+
+            return new Result("Test", ActionState.SUCCESS);
         }
     }
 }

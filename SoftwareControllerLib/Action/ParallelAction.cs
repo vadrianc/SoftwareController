@@ -33,20 +33,23 @@
         /// <summary>
         /// Execute a collection of actions in parallel.
         /// </summary>
-        public void Execute()
+        public IResult Execute()
         {
-            if (mActions.Count == 0) return;
+            if (mActions.Count == 0) return new Result(null, ActionState.NOT_EXECUTED);
 
             Task[] tasks = new Task[mActions.Count];
             int index = 0;
+            List<IResult> results = new List<IResult>();
 
             foreach (IAction action in mActions) {
-                Task task = new Task(() => { action.Execute(); });
+                Task task = new Task(() => { results.Add(action.Execute()); });
                 task.Start();
                 tasks[index++] = task;
             }
 
             Task.WaitAll(tasks);
+
+            return new MultiResult(null, ActionState.SUCCESS, results);
         }
 
         /// <summary>
