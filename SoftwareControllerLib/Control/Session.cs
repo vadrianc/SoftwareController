@@ -10,10 +10,8 @@
     /// </summary>
     public class Session : ISession
     {
-        private IList<IRule> mRules;
-
         /// <summary>
-        /// Initialize a new instance of the <see cref="Session"/> class with the given name.
+        /// Initializes a new instance of the <see cref="Session"/> class with the given name.
         /// </summary>
         /// <param name="name">The name of the session.</param>
         public Session(string name)
@@ -22,24 +20,25 @@
             if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Cannot be empty", "name");
 
             Name = name;
-            mRules = new List<IRule>();
+            Rules = new List<IRule>();
         }
 
         /// <summary>
         /// Get or set the name of the session.
         /// </summary>
-        public string Name { get; set;}
+        public string Name
+        {
+            get;
+            set;
+        }
 
         /// <summary>
-        /// Applies a set of rules in a sequential order.
+        /// Get the list of rules.
         /// </summary>
-        public void Run()
+        public IList<IRule> Rules
         {
-            if (mRules.Count == 0) return;
-
-            foreach (IRule rule in mRules) {
-                rule.Apply();
-            }
+            get;
+            private set;
         }
 
         /// <summary>
@@ -50,7 +49,7 @@
         {
             if (rule == null) throw new ArgumentNullException("rule", "Cannot be null");
 
-            mRules.Add(rule);
+            Rules.Add(rule);
         }
 
         /// <summary>
@@ -61,7 +60,19 @@
         {
             if (rule == null) throw new ArgumentNullException("rule", "Cannot be null");
 
-            mRules.Remove(rule);
+            Rules.Remove(rule);
+        }
+
+        /// <summary>
+        /// Applies a set of rules in a sequential order.
+        /// </summary>
+        public void Run()
+        {
+            if (Rules.Count == 0) return;
+
+            foreach (IRule rule in Rules) {
+                rule.Apply();
+            }
         }
     }
 }

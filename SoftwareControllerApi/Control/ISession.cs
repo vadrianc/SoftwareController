@@ -1,5 +1,6 @@
 ﻿namespace SoftwareControllerApi.Control
 {
+    using System.Collections.Generic;
     using Rule;
 
     /// <summary>
@@ -8,9 +9,14 @@
     public interface ISession
     {
         /// <summary>
-        /// The name of the session.
+        /// Get or set the name of the session.
         /// </summary>
-        string Name { get; }
+        string Name { get; set; }
+
+        /// <summary>
+        /// Get the list of rules.
+        /// </summary>
+        IList<IRule> Rules { get; }
 
         /// <summary>
         /// Run the session.
