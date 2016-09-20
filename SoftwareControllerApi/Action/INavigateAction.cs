@@ -5,5 +5,9 @@
     /// </summary>
     public interface INavigateAction : ISequentialAction
     {
+        /// <summary>
+        /// Get the link to which to navigate to.
+        /// </summary>
+        string Link { get; }
     }
 }

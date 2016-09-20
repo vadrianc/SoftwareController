@@ -7,7 +7,11 @@
     /// A Wait Action should be complementary to other actions, sequential or parallel, 
     /// by implementing the functionality to wait for the action to finish.
     /// </remarks>
-    public interface IWaitAction
+    public interface IWaitAction : ISequentialAction
     {
+        /// <summary>
+        /// Get the number of milliseconds to wait for.
+        /// </summary>
+        int Milliseconds { get; }
     }
 }
