@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action\ActionState.cs" />
+    <Compile Include="Action\ActionType.cs" />
     <Compile Include="Action\IAction.cs" />
     <Compile Include="Action\IClickAction.cs" />
     <Compile Include="Action\ICollectAction.cs" />
