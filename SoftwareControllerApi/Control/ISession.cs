@@ -9,9 +9,9 @@
     public interface ISession
     {
         /// <summary>
-        /// Get or set the name of the session.
+        /// Get the name of the session.
         /// </summary>
-        string Name { get; set; }
+        string Name { get; }
 
         /// <summary>
         /// Get the list of rules.
