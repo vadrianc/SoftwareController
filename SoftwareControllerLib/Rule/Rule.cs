@@ -10,7 +10,7 @@
     /// </summary>
     public class Rule : IRule
     {
-        private IList<IAction> mActions;
+        private readonly IList<IAction> mActions;
 
         /// <summary>
         /// Initialize a new instance of the <see cref="Rule"/> class with the given name.
@@ -41,6 +41,17 @@
         /// Get or set the name of the rule.
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Get the list of actions.
+        /// </summary>
+        public IList<IAction> Actions
+        {
+            get
+            {
+                return mActions;
+            }
+        }
 
         /// <summary>
         /// Apply the rule's actions.

@@ -1,5 +1,6 @@
 ﻿namespace SoftwareControllerApi.Rule
 {
+    using System.Collections.Generic;
     using Action;
 
     /// <summary>
@@ -11,6 +12,11 @@
         /// The name of the rule.
         /// </summary>
         string Name { get; }
+
+        /// <summary>
+        /// Get the list of actions.
+        /// </summary>
+        IList<IAction> Actions { get; }
 
         /// <summary>
         /// Apply the rule's actions.
