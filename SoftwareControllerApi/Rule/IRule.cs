@@ -21,7 +21,10 @@
         /// <summary>
         /// Apply the rule's actions.
         /// </summary>
-        void Apply();
+        /// <returns>
+        /// The aggregated result of running the actions.
+        /// </returns>
+        IResult Apply();
 
         /// <summary>
         /// Add action to be executed as part of the rule.

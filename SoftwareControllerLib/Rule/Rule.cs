@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using Action;
     using SoftwareControllerApi.Action;
     using SoftwareControllerApi.Rule;
 
@@ -56,11 +57,18 @@
         /// <summary>
         /// Apply the rule's actions.
         /// </summary>
-        public void Apply()
+        /// <returns>
+        /// The aggregated results of running the actions.
+        /// </returns>
+        public IResult Apply()
         {
+            List<IResult> resultList = new List<IResult>();
+
             foreach (IAction action in mActions) {
-                action.Execute();
+                resultList.Add(action.Execute());
             }
+
+            return new MultiResult(null, ActionState.SUCCESS, resultList);
         }
 
         /// <summary>

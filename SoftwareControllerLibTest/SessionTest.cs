@@ -35,9 +35,6 @@
         {
             Session session = new Session("Test");
             Assert.That(session.Name, Is.EqualTo("Test"));
-
-            session.Name = "NewName";
-            Assert.That(session.Name, Is.EqualTo("NewName"));
         }
 
         [Test]

@@ -2,6 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using Action;
+    using SoftwareControllerApi.Action;
     using SoftwareControllerApi.Control;
     using SoftwareControllerApi.Rule;
 
@@ -66,13 +68,35 @@
         /// <summary>
         /// Applies a set of rules in a sequential order.
         /// </summary>
-        public void Run()
+        /// <returns>
+        /// The aggregated result of running the rules.
+        /// </returns>
+        public IResult Run()
         {
-            if (Rules.Count == 0) return;
+            if (Rules.Count == 0) return null;
+
+            List<IResult> resultList = new List<IResult>();
 
             foreach (IRule rule in Rules) {
-                rule.Apply();
+                resultList.Add(rule.Apply());
             }
+
+            return new MultiResult(null, ActionState.SUCCESS, resultList);
+        }
+
+        /// <summary>
+        /// Applies a set of rules in a sequential order.
+        /// </summary>
+        /// <returns>The failed result.</returns>
+        public IResult RunUntilFailure()
+        {
+            IResult result;
+
+            do {
+                result = Run();
+            } while (result.State == ActionState.SUCCESS);
+
+            return result;
         }
     }
 }

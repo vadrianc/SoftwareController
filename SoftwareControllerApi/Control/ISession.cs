@@ -1,6 +1,7 @@
 ﻿namespace SoftwareControllerApi.Control
 {
     using System.Collections.Generic;
+    using Action;
     using Rule;
 
     /// <summary>
@@ -21,7 +22,13 @@
         /// <summary>
         /// Run the session.
         /// </summary>
-        void Run();
+        IResult Run();
+
+        /// <summary>
+        /// Run the session.
+        /// </summary>
+        /// <returns>The failed result.</returns>
+        IResult RunUntilFailure();
 
         /// <summary>
         /// Add a new rule to the session.
