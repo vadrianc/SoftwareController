@@ -1,9 +1,9 @@
-﻿using System;
-using NUnit.Framework;
-using SoftwareControllerLib.Control;
-
-namespace SoftwareControllerLibTest.Config
+﻿namespace SoftwareControllerLibTest.Config
 {
+    using System;
+    using NUnit.Framework;
+    using SoftwareControllerLib.Control;
+
     [TestFixture]
     public class ConfigReaderBaseTest
     {

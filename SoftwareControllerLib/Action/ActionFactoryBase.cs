@@ -1,7 +1,7 @@
-﻿using SoftwareControllerApi.Action;
-
-namespace SoftwareControllerLib.Action
+﻿namespace SoftwareControllerLib.Action
 {
+    using SoftwareControllerApi.Action;
+
     /// <summary>
     /// Base class for creating an action factory.
     /// </summary>

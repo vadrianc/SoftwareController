@@ -1,10 +1,10 @@
-﻿using System;
-using System.Xml;
-using SoftwareControllerApi.Rule;
-using SoftwareControllerLib.Control;
-
-namespace SoftwareControllerLib.Config
+﻿namespace SoftwareControllerLib.Config
 {
+    using System;
+    using System.Xml;
+    using SoftwareControllerApi.Rule;
+    using SoftwareControllerLib.Control;
+
     /// <summary>
     /// Base class for defining a configuration reader.
     /// </summary>

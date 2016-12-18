@@ -1,8 +1,8 @@
-﻿using System;
-using SoftwareControllerApi.Utils;
-
-namespace SoftwareControllerLib.Utils
+﻿namespace SoftwareControllerLib.Utils
 {
+    using System;
+    using SoftwareControllerApi.Utils;
+
     /// <summary>
     /// Class for outputting to a console.
     /// </summary>

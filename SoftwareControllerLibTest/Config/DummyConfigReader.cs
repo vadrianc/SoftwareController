@@ -1,12 +1,10 @@
-﻿using System;
-using System.Threading;
-using System.Xml;
-using SoftwareControllerApi.Rule;
-using SoftwareControllerLib.Config;
-using SoftwareControllerLib.Control;
-
-namespace SoftwareControllerLibTest.Config
+﻿namespace SoftwareControllerLibTest.Config
 {
+    using System.Xml;
+    using SoftwareControllerApi.Rule;
+    using SoftwareControllerLib.Config;
+    using SoftwareControllerLib.Control;
+
     /// <summary>
     /// Dummy class used only for testing the <see cref="ConfigReaderBase{T}"/> logic.
     /// </summary>
