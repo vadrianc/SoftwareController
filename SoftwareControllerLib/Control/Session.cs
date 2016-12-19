@@ -16,6 +16,8 @@
         /// Initializes a new instance of the <see cref="Session"/> class with the given name.
         /// </summary>
         /// <param name="name">The name of the session.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="name"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="name"/> is empty or white space only.</exception>
         public Session(string name)
         {
             if (name == null) throw new ArgumentNullException("name", "Cannot be null");
@@ -47,6 +49,7 @@
         /// Add a new rule.
         /// </summary>
         /// <param name="rule">The rule to be added.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="rule"/> is null.</exception>
         public void AddRule(IRule rule)
         {
             if (rule == null) throw new ArgumentNullException("rule", "Cannot be null");
@@ -58,6 +61,7 @@
         /// Remove a rule.
         /// </summary>
         /// <param name="rule">The rule to be removed.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="rule"/> is null.</exception>
         public void RemoveRule(IRule rule)
         {
             if (rule == null) throw new ArgumentNullException("rule", "Cannot be null");
@@ -69,7 +73,7 @@
         /// Applies a set of rules in a sequential order.
         /// </summary>
         /// <returns>
-        /// The aggregated result of running the rules.
+        /// The aggregated result of running the rules. <c>null</c> is returned if the rules count is 0.
         /// </returns>
         public IResult Run()
         {

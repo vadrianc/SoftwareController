@@ -23,6 +23,7 @@
         /// <param name="content">The content of the result.</param>
         /// <param name="state">The state of executing multiple actions.</param>
         /// <param name="results">The results of multiple actions.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="results"/> is null.</exception>
         public MultiResult(object content, ActionState state, List<IResult> results) : base(content, state)
         {
             if (results == null) throw new ArgumentNullException("results", "Cannot be null");

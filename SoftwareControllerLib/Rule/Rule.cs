@@ -17,6 +17,8 @@
         /// Initialize a new instance of the <see cref="Rule"/> class with the given name.
         /// </summary>
         /// <param name="name">The name of the rule.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="name"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="name"/> is empty or white space only.</exception>
         public Rule(string name)
         {
             if (name == null) throw new ArgumentNullException("name", "Cannot be null");
@@ -31,6 +33,7 @@
         /// </summary>
         /// <param name="name">The name of the rule.</param>
         /// <param name="actions">The collection of actions.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="actions"/> is null.</exception>
         public Rule(string name, IList<IAction> actions) : this(name)
         {
             if (actions == null) throw new ArgumentNullException("actions", "Cannot be null");
@@ -75,6 +78,7 @@
         /// Add the action to be executed as part of the rule.
         /// </summary>
         /// <param name="action">Action to be added.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="action"/> is null.</exception>
         public void AddAction(IAction action)
         {
             if (action == null) throw new ArgumentNullException("action", "Cannot be null");
@@ -86,6 +90,7 @@
         /// Remove the action from the rule.
         /// </summary>
         /// <param name="action">Action to be removed.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="action"/> is null.</exception>
         public void RemoveAction(IAction action)
         {
             if (action == null) throw new ArgumentNullException("action", "Cannot be null");

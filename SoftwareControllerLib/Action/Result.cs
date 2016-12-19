@@ -1,6 +1,5 @@
 ﻿namespace SoftwareControllerLib.Action
 {
-    using System;
     using SoftwareControllerApi.Action;
 
     /// <summary>

@@ -2,8 +2,8 @@
 {
     using System;
     using System.Xml;
+    using Control;
     using SoftwareControllerApi.Rule;
-    using SoftwareControllerLib.Control;
 
     /// <summary>
     /// Base class for defining a configuration reader.
@@ -22,6 +22,8 @@
         /// Initializes a new instance of the <see cref="ConfigReaderBase"/> class with the given configuration file path.
         /// </summary>
         /// <param name="config">The configuration file path.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="config"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="config"/> is empty of white space only.</exception>
         public ConfigReaderBase(string config)
         {
             if (config == null) throw new ArgumentNullException("config", "Cannot be null");
