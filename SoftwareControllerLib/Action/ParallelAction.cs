@@ -40,7 +40,7 @@
         /// </returns>
         public IResult Execute()
         {
-            if (mActions.Count == 0) return new Result(null, ActionState.NOT_EXECUTED);
+            if (mActions.Count == 0) return new SingleResult<object>(ActionState.NOT_EXECUTED);
 
             Task[] tasks = new Task[mActions.Count];
             int index = 0;
@@ -54,7 +54,7 @@
 
             Task.WaitAll(tasks);
 
-            return new MultiResult(null, ActionState.SUCCESS, results);
+            return new MultiResult(ActionState.SUCCESS, results);
         }
 
         /// <summary>

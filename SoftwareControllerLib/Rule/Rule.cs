@@ -71,7 +71,7 @@
                 resultList.Add(action.Execute());
             }
 
-            return new MultiResult(null, ActionState.SUCCESS, resultList);
+            return new MultiResult(ActionState.SUCCESS, resultList);
         }
 
         /// <summary>

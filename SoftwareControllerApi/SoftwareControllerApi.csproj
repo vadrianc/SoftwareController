@@ -45,10 +45,12 @@
     <Compile Include="Action\IAction.cs" />
     <Compile Include="Action\IClickAction.cs" />
     <Compile Include="Action\ICollectAction.cs" />
+    <Compile Include="Action\IMultiResult.cs" />
     <Compile Include="Action\INavigateAction.cs" />
     <Compile Include="Action\IParallelAction.cs" />
     <Compile Include="Action\IResult.cs" />
     <Compile Include="Action\ISequentialAction.cs" />
+    <Compile Include="Action\ISingleResult.cs" />
     <Compile Include="Action\ITypeAction.cs" />
     <Compile Include="Action\IWaitAction.cs" />
     <Compile Include="Control\ISession.cs" />

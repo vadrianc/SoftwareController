@@ -5,14 +5,14 @@
     using SoftwareControllerLib.Action;
 
     [TestFixture]
-    public class ResultTest
+    public class SingleResultTest
     {
         [Test]
         [Category("Result")]
         public void CreateResult()
         {
             object content = new object();
-            IResult result = new Result(content, ActionState.SUCCESS);
+            SingleResult<object> result = new SingleResult<object>(content, ActionState.SUCCESS);
 
             Assert.That(result.Content, Is.EqualTo(content));
             Assert.That(result.State, Is.EqualTo(ActionState.SUCCESS));

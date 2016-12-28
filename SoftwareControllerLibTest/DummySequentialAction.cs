@@ -22,7 +22,7 @@
         {
             Name = "Test";
 
-            return new Result("Test", ActionState.SUCCESS);
+            return new SingleResult<string>("Test", ActionState.SUCCESS);
         }
     }
 }

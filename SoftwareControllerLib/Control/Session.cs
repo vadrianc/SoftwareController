@@ -85,7 +85,7 @@
                 resultList.Add(rule.Apply());
             }
 
-            return new MultiResult(null, ActionState.SUCCESS, resultList);
+            return new MultiResult(ActionState.SUCCESS, resultList);
         }
 
         /// <summary>

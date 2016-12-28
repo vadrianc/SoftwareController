@@ -7,24 +7,23 @@
     /// <summary>
     /// The aggregated results of multiple actions.
     /// </summary>
-    public class MultiResult : Result
+    public class MultiResult : IMultiResult
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiResult"/> class.
         /// </summary>
         /// <param name="content">The content of the result.</param>
         /// <param name="state">The state of executing multiple actions.</param>
-        public MultiResult(object content, ActionState state) : this(content, state, new List<IResult>())
+        public MultiResult(ActionState state) : this(state, new List<IResult>())
         { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiResult"/> class.
         /// </summary>
-        /// <param name="content">The content of the result.</param>
         /// <param name="state">The state of executing multiple actions.</param>
         /// <param name="results">The results of multiple actions.</param>
         /// <exception cref="ArgumentNullException"><paramref name="results"/> is null.</exception>
-        public MultiResult(object content, ActionState state, List<IResult> results) : base(content, state)
+        public MultiResult(ActionState state, List<IResult> results)
         {
             if (results == null) throw new ArgumentNullException("results", "Cannot be null");
 
@@ -54,7 +53,16 @@
         /// <summary>
         /// The aggregated results of multiple actions.
         /// </summary>
-        public List<IResult> Results
+        public IList<IResult> Results
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Get the state after executing the actions.
+        /// </summary>
+        public ActionState State
         {
             get;
             private set;
