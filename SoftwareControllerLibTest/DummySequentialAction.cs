@@ -13,14 +13,21 @@
             get; set;
         }
 
+        public int Count
+        {
+            get; private set;
+        }
+
         public DummySequentialAction(string name)
         {
             Name = name;
+            Count = 0;
         }
 
         public IResult Execute()
         {
             Name = "Test";
+            Count++;
 
             return new SingleResult<string>("Test", ActionState.SUCCESS);
         }

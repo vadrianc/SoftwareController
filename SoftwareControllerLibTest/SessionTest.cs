@@ -123,5 +123,47 @@
             Assert.That(action1.Name, Is.EqualTo("dummy1"));
             Assert.That(action2.Name, Is.EqualTo("Test"));
         }
+
+        [Test]
+        [Category("Session")]
+        public void CheckRepeat()
+        {
+            RepeatableRule rule = new RepeatableRule("RepeatableRule");
+            rule.CanRepeat += Repeat;
+
+            DummySequentialAction action = new DummySequentialAction("action");
+            rule.AddAction(action);
+
+            Session session = new Session("session");
+            session.AddRule(rule);
+            session.Run();
+
+            Assert.That(action.Count, Is.EqualTo(4));
+        }
+
+        private static int s_Count = 5;
+
+        private static bool Repeat()
+        {
+            s_Count--;
+
+            return s_Count != 0;
+        }
+
+        [Test]
+        [Category("Session")]
+        public void CheckNonRepeat()
+        {
+            RepeatableRule rule = new RepeatableRule("RepeatableRule");
+
+            DummySequentialAction action = new DummySequentialAction("action");
+            rule.AddAction(action);
+
+            Session session = new Session("session");
+            session.AddRule(rule);
+            session.Run();
+
+            Assert.That(action.Count, Is.EqualTo(1));
+        }
     }
 }

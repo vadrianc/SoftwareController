@@ -82,7 +82,21 @@
             List<IResult> resultList = new List<IResult>();
 
             foreach (IRule rule in Rules) {
-                resultList.Add(rule.Apply());
+                IRepeatableRule repeatableRule = rule as IRepeatableRule;
+
+                if (repeatableRule == null) {
+                    resultList.Add(rule.Apply());
+                } else {
+                    CanRepeatHandler canRepeat = repeatableRule.CanRepeat;
+                    if (canRepeat == null) {
+                        resultList.Add(rule.Apply());
+                        continue;
+                    }
+
+                    while (canRepeat()) {
+                        resultList.Add(rule.Apply());
+                    }
+                }
             }
 
             return new MultiResult(ActionState.SUCCESS, resultList);
