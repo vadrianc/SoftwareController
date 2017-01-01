@@ -93,9 +93,9 @@
                         continue;
                     }
 
-                    while (canRepeat()) {
+                    do {
                         resultList.Add(rule.Apply());
-                    }
+                    } while (canRepeat());
                 }
             }
 

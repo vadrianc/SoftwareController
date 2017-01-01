@@ -1,6 +1,7 @@
 ﻿namespace SoftwareControllerLib.Config
 {
     using System;
+    using System.Collections.Generic;
     using System.Xml;
     using Control;
     using SoftwareControllerApi.Rule;
@@ -17,6 +18,7 @@
     {
         protected XmlReader m_Reader;
         protected T m_Session;
+        private readonly List<string> c_BooleanAttrValues = new List<string>() { "true", "false", null };
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigReaderBase"/> class with the given configuration file path.
@@ -53,13 +55,33 @@
             XmlReader automatonReader = m_Reader.ReadSubtree();
 
             while (automatonReader.Read()) {
-                if (automatonReader.NodeType == XmlNodeType.Element && automatonReader.Name.Equals("rule")) {
-                    Rule rule = new Rule(automatonReader.GetAttribute("name"));
-                    m_Session.AddRule(rule);
-                    XmlReader ruleReader = automatonReader.ReadSubtree();
-                    ReadActions(ruleReader, rule);
-                }
+                if (automatonReader.NodeType != XmlNodeType.Element || !automatonReader.Name.Equals("rule")) continue;
+                
+                string name = automatonReader.GetAttribute("name");
+                bool isRepeatable = GetBooleanAttribute(automatonReader, "isRepeatable");
+                Rule rule = isRepeatable ? new RepeatableRule(name) : new Rule(name);
+
+                m_Session.AddRule(rule);
+                XmlReader ruleReader = automatonReader.ReadSubtree();
+                ReadActions(ruleReader, rule);
             }
+        }
+
+        /// <summary>
+        /// Reads a boolean attribute and returns it's value.
+        /// </summary>
+        /// <param name="xmlReader">XML reader.</param>
+        /// <param name="attribute">The attribute name.</param>
+        /// <returns><c>true</c> if the attribute string value is true, <c>false</c> otherwise.</returns>
+        protected bool GetBooleanAttribute(XmlReader xmlReader, string attribute)
+        {
+            string isRepeatableStr = xmlReader.GetAttribute(attribute);
+            if (!c_BooleanAttrValues.Contains(isRepeatableStr)) {
+                string msg = string.Format("Unrecognized attribute value {0}", isRepeatableStr);
+                throw new XmlException(msg);
+            }
+
+            return (isRepeatableStr != null) && isRepeatableStr.ToLower().Equals("true");
         }
 
         /// <summary>

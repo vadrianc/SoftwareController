@@ -138,7 +138,7 @@
             session.AddRule(rule);
             session.Run();
 
-            Assert.That(action.Count, Is.EqualTo(4));
+            Assert.That(action.Count, Is.EqualTo(5));
         }
 
         private static int s_Count = 5;
