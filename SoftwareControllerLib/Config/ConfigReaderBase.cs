@@ -73,8 +73,12 @@
         /// <param name="xmlReader">XML reader.</param>
         /// <param name="attribute">The attribute name.</param>
         /// <returns><c>true</c> if the attribute string value is true, <c>false</c> otherwise.</returns>
+        /// <exception cref="ArgumentNullException"><see cref="XmlReader"/> is null.</exception>
+        /// <exception cref="XmlException">The read value of the attribute is not valid.</exception>
         protected bool GetBooleanAttribute(XmlReader xmlReader, string attribute)
         {
+            if (xmlReader == null) throw new ArgumentNullException("xmlReader");
+
             string isRepeatableStr = xmlReader.GetAttribute(attribute);
             if (!c_BooleanAttrValues.Contains(isRepeatableStr)) {
                 string msg = string.Format("Unrecognized attribute value {0}", isRepeatableStr);
@@ -82,6 +86,20 @@
             }
 
             return (isRepeatableStr != null) && isRepeatableStr.ToLower().Equals("true");
+        }
+
+        /// <summary>
+        /// Reads a string attribute and returns it's value.
+        /// </summary>
+        /// <param name="xmlReader">XML reader.</param>
+        /// <param name="attribute">The attribute name.</param>
+        /// <returns>The string value of the given attribute, <c>null</c> if not found.</returns>
+        /// <exception cref="ArgumentNullException"><see cref="XmlReader"/> is null.</exception>
+        protected string GetStringAttribute(XmlReader xmlReader, string attribute)
+        {
+            if (xmlReader == null) throw new ArgumentNullException("xmlReader");
+
+            return xmlReader.GetAttribute(attribute);
         }
 
         /// <summary>
