@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Config\ConfigReaderBaseTest.cs" />
     <Compile Include="Config\DummyConfigReader.cs" />
+    <Compile Include="DummyResultProcessor.cs" />
     <Compile Include="DummySequentialAction.cs" />
     <Compile Include="MultiRuleTest.cs" />
     <Compile Include="ParallelActionTest.cs" />

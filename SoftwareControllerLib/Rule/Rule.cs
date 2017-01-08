@@ -58,6 +58,27 @@
         }
 
         /// <summary>
+        /// Get a boolean value that indicates if the rule result(s) can be processed or not.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if the rule result(s) can be processed, <c>false</c> otherwise.
+        /// </value>
+        public bool IsProcessable
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Get or set the list of result processors.
+        /// </summary>
+        public IList<IResultProcessor> ResultProcessors
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Apply the rule's actions.
         /// </summary>
         /// <returns>
@@ -71,7 +92,16 @@
                 resultList.Add(action.Execute());
             }
 
+            if (IsProcessable) ProcessResults(resultList);
+
             return new MultiResult(ActionState.SUCCESS, resultList);
+        }
+
+        private void ProcessResults(IList<IResult> results)
+        {
+            foreach (IResultProcessor processor in ResultProcessors) {
+                processor.Process(results);
+            }
         }
 
         /// <summary>

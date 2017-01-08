@@ -14,6 +14,19 @@
         string Name { get; }
 
         /// <summary>
+        /// Get a boolean value that indicates if the rule result(s) can be processed or not.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if the rule result(s) can be processed, <c>false</c> otherwise.
+        /// </value>
+        bool IsProcessable { get; }
+
+        /// <summary>
+        /// Get or set the list of result processors.
+        /// </summary>
+        IList<IResultProcessor> ResultProcessors { get; set; }
+
+        /// <summary>
         /// Get the list of actions.
         /// </summary>
         IList<IAction> Actions { get; }

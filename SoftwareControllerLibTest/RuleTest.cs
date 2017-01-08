@@ -1,8 +1,10 @@
 ﻿namespace SoftwareControllerLibTest
 {
     using System;
+    using System.Collections.Generic;
     using NUnit.Framework;
     using SoftwareControllerApi.Action;
+    using SoftwareControllerApi.Rule;
     using SoftwareControllerLib;
     using SoftwareControllerLib.Action;
 
@@ -203,6 +205,33 @@
 
             Assert.That(action1.Name, Is.EqualTo("dummy1"));
             Assert.That(action2.Name, Is.EqualTo("Test"));
+        }
+
+        [Test]
+        [Category("Rule")]
+        public void RuleWithProcessor()
+        {
+            Rule rule = new Rule("Test");
+
+            IAction action1 = new DummySequentialAction("dummy1");
+            IAction action2 = new DummySequentialAction("dummy2");
+
+            rule.AddAction(action1);
+            rule.AddAction(action2);
+            rule.IsProcessable = true;
+            List<IResultProcessor> processors = new List<IResultProcessor>();
+            DummyResultProcessor processor = new DummyResultProcessor();
+            processors.Add(processor);
+            Assert.That(DummyResultProcessor.Count, Is.EqualTo(0));
+            rule.ResultProcessors = processors;
+
+            rule.Apply();
+            Assert.That(DummyResultProcessor.Count, Is.EqualTo(2));
+
+            IAction action3 = new DummySequentialAction("dummy3");
+            rule.AddAction(action3);
+            rule.Apply();
+            Assert.That(DummyResultProcessor.Count, Is.EqualTo(3));
         }
     }
 }

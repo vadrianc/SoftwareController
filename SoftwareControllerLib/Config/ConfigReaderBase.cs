@@ -60,6 +60,7 @@
                 string name = automatonReader.GetAttribute("name");
                 bool isRepeatable = GetBooleanAttribute(automatonReader, "isRepeatable");
                 Rule rule = isRepeatable ? new RepeatableRule(name) : new Rule(name);
+                rule.IsProcessable = GetBooleanAttribute(automatonReader, "isProcessable");
 
                 m_Session.AddRule(rule);
                 XmlReader ruleReader = automatonReader.ReadSubtree();
