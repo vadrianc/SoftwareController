@@ -54,9 +54,6 @@
     <Compile Include="Action\ITypeAction.cs" />
     <Compile Include="Action\IWaitAction.cs" />
     <Compile Include="Control\ISession.cs" />
-    <Compile Include="Model\IComposite.cs" />
-    <Compile Include="Model\IData.cs" />
-    <Compile Include="Model\INode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rule\IRepeatableRule.cs" />
     <Compile Include="Rule\IRule.cs" />
